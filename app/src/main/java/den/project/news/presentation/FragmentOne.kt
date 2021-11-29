@@ -11,6 +11,9 @@ import den.project.news.databinding.FragmentOneBinding
 class FragmentOne : Fragment() {
     private lateinit var binding: FragmentOneBinding
 
+    companion object {
+        fun newInstance() = FragmentOne()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,9 +35,4 @@ class FragmentOne : Fragment() {
             .replace(R.id.fragment_two, FragmentTwo.newInstance())
             .commit()
     }
-
-    companion object {
-        fun newInstance() = FragmentOne()
-    }
-
 }

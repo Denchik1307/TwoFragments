@@ -1,10 +1,7 @@
 package den.project.news.resources
 
-import den.project.news.data.SourceList
-import den.project.news.test.LIST
+import den.project.news.data.SourceItem
 
-class GetResource {
-    fun getRes(): ArrayList<SourceList> {
-        return LIST
-    }
+interface GetResource {
+    fun getRes(): ArrayList<SourceItem>
 }

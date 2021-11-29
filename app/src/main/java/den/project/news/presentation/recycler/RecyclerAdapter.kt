@@ -1,17 +1,14 @@
 package den.project.news.presentation.recycler
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import den.project.news.R
-import den.project.news.data.SourceList
+import den.project.news.data.SourceItem
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
-    private val listShow = ArrayList<SourceList>()
-
-    companion object {
-        fun newInstance() = RecyclerAdapter()
-    }
+    private var listShow = ArrayList<SourceItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolder {
         val view = LayoutInflater.from(parent.context)
@@ -20,16 +17,16 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerHolder, position: Int) {
-        return holder.bind(listShow[position])
+        holder.bind(listShow[position])
     }
 
     override fun getItemCount(): Int {
         return listShow.size
     }
 
-    fun showList(list: ArrayList<SourceList>) {
-        listShow.clear()
-        listShow.addAll(list)
+    @SuppressLint("NotifyDataSetChanged")
+    fun showList(item: ArrayList<SourceItem>) {
+        listShow.addAll(item)
         notifyDataSetChanged()
     }
 }

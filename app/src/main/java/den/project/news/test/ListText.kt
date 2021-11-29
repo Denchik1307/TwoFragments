@@ -1,24 +1,24 @@
 package den.project.news.test
 
-import den.project.news.data.SourceList
+import den.project.news.data.SourceItem
 
-val LIST: ArrayList<SourceList> = arrayListOf(
-    SourceList(
+val ITEM: ArrayList<SourceItem> = arrayListOf(
+    SourceItem(
         "1. Something"
     ),
-    SourceList(
+    SourceItem(
         "2. Something"
     ),
-    SourceList(
+    SourceItem(
         "3. Something"
     ),
-    SourceList(
+    SourceItem(
         "4. Something"
     ),
-    SourceList(
+    SourceItem(
         "5. Something"
     ),
-    SourceList(
+    SourceItem(
         "6. Something"
     )
 )

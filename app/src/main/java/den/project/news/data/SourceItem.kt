@@ -1,5 +1,5 @@
 package den.project.news.data
 
-data class SourceList(
+data class SourceItem(
     val text: String
 )
