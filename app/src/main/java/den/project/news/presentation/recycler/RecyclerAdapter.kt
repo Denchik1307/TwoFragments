@@ -8,7 +8,7 @@ import den.project.news.R
 import den.project.news.data.SourceItem
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
-    private val listShow = ArrayList<SourceItem>()
+    private var listShow = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolder {
         val view = LayoutInflater.from(parent.context)
@@ -25,7 +25,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun showList(item: ArrayList<SourceItem>) {
+    fun showList(item: List<String>) {
         listShow.addAll(item)
         notifyDataSetChanged()
     }
