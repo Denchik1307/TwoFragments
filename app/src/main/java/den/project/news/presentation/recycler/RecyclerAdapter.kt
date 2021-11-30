@@ -8,7 +8,7 @@ import den.project.news.R
 import den.project.news.data.SourceItem
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
-    private var listShow = ArrayList<SourceItem>()
+    private val listShow = ArrayList<SourceItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolder {
         val view = LayoutInflater.from(parent.context)
