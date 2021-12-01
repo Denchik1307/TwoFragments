@@ -5,15 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import den.project.news.R
-import den.project.news.data.SourceItem
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
     private var listShow = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolder {
-        val view = LayoutInflater.from(parent.context)
+        val viewHolder = LayoutInflater.from(parent.context)
             .inflate(R.layout.resource_fragment, parent, false)
-        return RecyclerHolder(view)
+        return RecyclerHolder(viewHolder)
     }
 
     override fun onBindViewHolder(holder: RecyclerHolder, position: Int) {
@@ -24,9 +23,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
         return listShow.size
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun showList(item: List<String>) {
-        listShow.addAll(item)
+    fun submitList(item: List<String>) {
+        listShow = item as MutableList<String>
         notifyDataSetChanged()
     }
 }

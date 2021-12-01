@@ -5,19 +5,27 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
-    private var someText: MutableLiveData<List<String>> = MutableLiveData()
     var temp = mutableListOf<String>()
+
+    private var _someText = MutableLiveData<List<String>>()
+    var value: LiveData<List<String>>
+        get() = _someText
+        set(value) {
+            _someText = value as MutableLiveData<List<String>>
+        }
+
 
     init {
         for (i in 1..10) {
-            temp.add("$i Somthig text")
+            temp.add("$i Some text")
         }
-        someText.value = temp
+        _someText.value = temp
     }
 
-    fun getSomeText(): LiveData<List<String>> {
-        return someText
+    fun setText(list: List<String>) {
+        _someText.value = list
     }
-
-
 }
+
+
+

@@ -6,4 +6,5 @@
     <string name="show_frag_one">show frag one</string>
     <string name="show_fragmen_two">Show fragmen two</string>
     <string name="hello_from_fragment_2">hello from fragment 2</string>
+    <string name="change_textview">Change textView</string>
 </resources>
