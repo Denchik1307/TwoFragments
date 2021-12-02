@@ -1,5 +1,6 @@
 package den.project.news.presentation.recycler
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -22,8 +23,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
         return listShow.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun submitList(item: List<String>) {
-        listShow = item as MutableList<String>
+        listShow = item.toMutableList()
         notifyDataSetChanged()
     }
 }

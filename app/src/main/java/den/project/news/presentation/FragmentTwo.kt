@@ -1,6 +1,7 @@
 package den.project.news.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,9 +30,7 @@ class FragmentTwo : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        someText.someText.observe(viewLifecycleOwner) { someText ->
-            showList(someText)
-        }
+        initObserve()
     }
 
     private fun showList(item: List<String>) {
@@ -39,6 +38,13 @@ class FragmentTwo : Fragment() {
             recyclerInFragmentTwo.layoutManager = LinearLayoutManager(context)
             recyclerInFragmentTwo.adapter = list
             list.submitList(item)
+        }
+    }
+
+    private fun initObserve() {
+        someText.someText.observe(viewLifecycleOwner) { someText ->
+            Log.d("MyLog", "observe $someText")
+            showList(someText)
         }
     }
 

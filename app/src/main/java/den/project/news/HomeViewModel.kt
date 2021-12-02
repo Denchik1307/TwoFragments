@@ -10,13 +10,16 @@ class HomeViewModel : ViewModel() {
     private val _someText = MutableLiveData<List<String>>()
     val someText: LiveData<List<String>> get() = _someText
 
+    fun set(value: List<String>) {
+        _someText.value = value
+    }
+
     init {
         for (i in 1..10) {
-            temp.add("$i Some text")
+            temp.add("$i\tSome text")
+            _someText.value = temp
         }
-        _someText.value = temp
     }
 }
-
 
 
