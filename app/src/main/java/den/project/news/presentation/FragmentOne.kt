@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import den.project.news.HomeViewModel
 import den.project.news.R
@@ -12,7 +13,7 @@ import den.project.news.databinding.FragmentOneBinding
 
 class FragmentOne : Fragment() {
     private lateinit var binding: FragmentOneBinding
-    private val someText: HomeViewModel by viewModels()
+    private val someText: HomeViewModel by activityViewModels()
 
     companion object {
         fun newInstance() = FragmentOne()
