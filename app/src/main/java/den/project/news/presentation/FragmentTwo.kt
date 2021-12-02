@@ -29,7 +29,7 @@ class FragmentTwo : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        someText.value.observe(viewLifecycleOwner) { someText ->
+        someText.someText.observe(viewLifecycleOwner) { someText ->
             showList(someText)
         }
     }

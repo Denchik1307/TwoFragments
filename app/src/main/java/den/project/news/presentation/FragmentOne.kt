@@ -36,7 +36,6 @@ class FragmentOne : Fragment() {
             for (i in 1..15) {
                 temp.add("$i oder text")
             }
-            someText.setText(temp)
             Toast.makeText(context, temp.toString(), Toast.LENGTH_SHORT).show()
         }
     }
