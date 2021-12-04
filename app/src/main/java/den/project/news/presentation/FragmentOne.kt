@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import den.project.news.HomeViewModel
 import den.project.news.R
 import den.project.news.databinding.FragmentOneBinding
+import den.project.news.presentation.vievmodel.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentOne : Fragment() {
     private lateinit var binding: FragmentOneBinding
-    private val someText: HomeViewModel by activityViewModels()
+    private val someText: HomeViewModel by viewModel()
+    private var temp = mutableListOf<String>()
 
     companion object {
         fun newInstance() = FragmentOne()
@@ -28,16 +28,12 @@ class FragmentOne : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.buttonFragmentOne.setOnClickListener {
+        binding.buttonOneFragmentOne.setOnClickListener {
             openFragmentTwo()
-        }
-        binding.buttonTwoFragmentOne.setOnClickListener {
-            val temp = mutableListOf<String>()
-            for (i in 1..15) {
-                temp.add("$i oder text")
-            }
+            temp = arrayListOf(binding.tvEditText.text.toString())
             someText.set(temp)
         }
+
     }
 
     private fun openFragmentTwo() {

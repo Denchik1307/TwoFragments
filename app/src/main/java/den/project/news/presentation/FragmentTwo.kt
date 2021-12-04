@@ -1,21 +1,20 @@
 package den.project.news.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import den.project.news.HomeViewModel
 import den.project.news.databinding.FragmentTwoBinding
 import den.project.news.presentation.recycler.RecyclerAdapter
+import den.project.news.presentation.vievmodel.HomeViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FragmentTwo : Fragment() {
     private lateinit var binding: FragmentTwoBinding
     private val list = RecyclerAdapter()
-    private val someText: HomeViewModel by activityViewModels()
+    private val observeVIew: HomeViewModel by viewModel()
 
     companion object {
         fun newInstance() = FragmentTwo()
@@ -42,9 +41,8 @@ class FragmentTwo : Fragment() {
     }
 
     private fun initObserve() {
-        someText.someText.observe(viewLifecycleOwner) { someText ->
-            Log.d("MyLog", "observe $someText")
-            showList(someText)
+        observeVIew.someText.observe(viewLifecycleOwner) { someText ->
+//            showList(someText)
         }
     }
 

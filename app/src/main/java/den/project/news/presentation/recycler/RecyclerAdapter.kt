@@ -23,7 +23,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerHolder>() {
         return listShow.size
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun submitList(item: List<String>) {
         listShow = item.toMutableList()
         notifyDataSetChanged()

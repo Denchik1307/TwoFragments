@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">News</string>
+    <string name="app_name">Two fragments</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_from_fragment_one">Hello from fragment one</string>
     <string name="fragment_text">Fragment homework</string>
     <string name="show_frag_one">show frag one</string>
-    <string name="show_fragmen_two">Show fragmen two</string>
+    <string name="show_fragment_two">Show fragmen two</string>
     <string name="hello_from_fragment_2">hello from fragment 2</string>
-    <string name="change_textview">Change textView</string>
+    <string name="change_textview_live_data">Change textView with LiveData</string>
+    <string name="change_textview_koin">Change textView with Koin</string>
+    <string name="input_text">input text</string>
 </resources>
