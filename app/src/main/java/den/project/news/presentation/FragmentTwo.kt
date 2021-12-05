@@ -15,7 +15,7 @@ import org.koin.android.viewmodel.ext.android.sharedViewModel
 class FragmentTwo : Fragment() {
     private lateinit var binding: FragmentTwoBinding
     private val list = RecyclerAdapter()
-    private val observeVIew: HomeViewModel by sharedViewModel()
+    private val homeViewModel: HomeViewModel by sharedViewModel()
 
     companion object {
         fun newInstance() = FragmentTwo()
@@ -44,7 +44,7 @@ class FragmentTwo : Fragment() {
 
     private fun initObserve() {
         Log.d("MyLog", "initObserve")
-        observeVIew.someText.observe(viewLifecycleOwner) { someText ->
+        homeViewModel.someText.observe(viewLifecycleOwner) { someText ->
             showList(someText)
         }
     }
