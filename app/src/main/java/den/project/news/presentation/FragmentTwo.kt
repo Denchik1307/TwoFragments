@@ -1,6 +1,7 @@
 package den.project.news.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,8 +42,10 @@ class FragmentTwo : Fragment() {
     }
 
     private fun initObserve() {
+        Log.d("MyLog","initObserve")
         observeVIew.someText.observe(viewLifecycleOwner) { someText ->
-//            showList(someText)
+            Log.d("MyLog","initObserve $someText")
+            showList(someText)
         }
     }
 
