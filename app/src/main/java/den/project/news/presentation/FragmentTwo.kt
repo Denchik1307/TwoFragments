@@ -30,19 +30,23 @@ class FragmentTwo : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initObserve()
+        initRecycler()
     }
 
     private fun showList(item: List<String>) {
-        binding.apply {
-            recyclerInFragmentTwo.layoutManager = LinearLayoutManager(context)
-            recyclerInFragmentTwo.adapter = list
-            list.submitList(item)
-        }
+        list.submitList(item)
     }
 
     private fun initObserve() {
         homeViewModel.someText.observe(viewLifecycleOwner) { someText ->
             showList(someText)
+        }
+    }
+
+    private fun initRecycler() {
+        binding.apply {
+            recyclerInFragmentTwo.layoutManager = LinearLayoutManager(context)
+            recyclerInFragmentTwo.adapter = list
         }
     }
 

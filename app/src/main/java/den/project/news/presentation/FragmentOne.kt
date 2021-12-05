@@ -44,4 +44,5 @@ class FragmentOne : Fragment() {
         val text = binding.tvEditText.text.toString().split("\n")
         return text
     }
+
 }
