@@ -1,7 +1,6 @@
 package den.project.news.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,13 +36,11 @@ class FragmentTwo : Fragment() {
         binding.apply {
             recyclerInFragmentTwo.layoutManager = LinearLayoutManager(context)
             recyclerInFragmentTwo.adapter = list
-            Log.d("MyLog", "ShowList item -> $item")
             list.submitList(item)
         }
     }
 
     private fun initObserve() {
-        Log.d("MyLog", "initObserve")
         homeViewModel.someText.observe(viewLifecycleOwner) { someText ->
             showList(someText)
         }

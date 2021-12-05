@@ -1,7 +1,6 @@
 package den.project.news.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +9,10 @@ import den.project.news.R
 import den.project.news.databinding.FragmentOneBinding
 import den.project.news.presentation.vievmodel.HomeViewModel
 import org.koin.android.viewmodel.ext.android.sharedViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class FragmentOne : Fragment() {
     private lateinit var binding: FragmentOneBinding
     private val homeViewModel: HomeViewModel by sharedViewModel()
-    private var temp = mutableListOf<String>()
 
     companion object {
         fun newInstance() = FragmentOne()
@@ -45,7 +42,6 @@ class FragmentOne : Fragment() {
 
     fun getTextFromEditText(): List<String> {
         val text = binding.tvEditText.text.toString().split("\n")
-        Log.d("MyLog", "text -> $text")
         return text
     }
 }
