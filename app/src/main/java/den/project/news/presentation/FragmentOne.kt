@@ -9,11 +9,12 @@ import androidx.fragment.app.Fragment
 import den.project.news.R
 import den.project.news.databinding.FragmentOneBinding
 import den.project.news.presentation.vievmodel.HomeViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FragmentOne : Fragment() {
     private lateinit var binding: FragmentOneBinding
-    private val someText: HomeViewModel by viewModel()
+    private val homeViewModel: HomeViewModel by sharedViewModel()
     private var temp = mutableListOf<String>()
 
     companion object {
@@ -31,9 +32,8 @@ class FragmentOne : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.buttonOneFragmentOne.setOnClickListener {
             openFragmentTwo()
-            someText.set(getTextFromEditText())
+            homeViewModel.set(getTextFromEditText() as MutableList<String>)
         }
-
     }
 
     private fun openFragmentTwo() {
@@ -43,9 +43,9 @@ class FragmentOne : Fragment() {
             .commit()
     }
 
-    fun getTextFromEditText(): MutableList<String> {
-        val text = binding.tvEditText.toString().split("\n")
+    fun getTextFromEditText(): List<String> {
+        val text = binding.tvEditText.text.toString().split("\n")
         Log.d("MyLog", "text -> $text")
-        return temp
+        return text
     }
 }

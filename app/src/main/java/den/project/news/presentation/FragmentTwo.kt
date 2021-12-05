@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import den.project.news.databinding.FragmentTwoBinding
 import den.project.news.presentation.recycler.RecyclerAdapter
 import den.project.news.presentation.vievmodel.HomeViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class FragmentTwo : Fragment() {
     private lateinit var binding: FragmentTwoBinding
     private val list = RecyclerAdapter()
-    private val observeVIew: HomeViewModel by viewModel()
+    private val observeVIew: HomeViewModel by sharedViewModel()
 
     companion object {
         fun newInstance() = FragmentTwo()
@@ -37,14 +37,14 @@ class FragmentTwo : Fragment() {
         binding.apply {
             recyclerInFragmentTwo.layoutManager = LinearLayoutManager(context)
             recyclerInFragmentTwo.adapter = list
+            Log.d("MyLog", "ShowList item -> $item")
             list.submitList(item)
         }
     }
 
     private fun initObserve() {
-        Log.d("MyLog","initObserve")
+        Log.d("MyLog", "initObserve")
         observeVIew.someText.observe(viewLifecycleOwner) { someText ->
-            Log.d("MyLog","initObserve $someText")
             showList(someText)
         }
     }
